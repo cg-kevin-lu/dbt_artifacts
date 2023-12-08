@@ -1,13 +1,16 @@
 {# dbt doesn't like us ref'ing in an operation so we fetch the info from the graph #}
 
-{% macro upload_results(results) -%}
+{% macro upload_results(results=[]) -%}
 
     {% if execute %}
 
         {% set datasets_to_load = ['exposures', 'seeds', 'snapshots', 'invocations', 'sources', 'tests', 'models'] %}
         {% if results != [] %}
-            {# When executing, and results are available, then upload the results #}
-            {% set datasets_to_load = ['model_executions', 'seed_executions', 'test_executions', 'snapshot_executions'] + datasets_to_load %}
+            {# When executing, and results are available, then upload the execution results #}
+            {% set datasets_to_load = ['invocations', 'model_executions', 'seed_executions', 'test_executions', 'snapshot_executions'] %}
+        {% else %}
+            {# When executing, and results are empty, then upload all results #}
+            {% set datasets_to_load = ['invocations', 'model_executions', 'seed_executions', 'test_executions', 'snapshot_executions'] + datasets_to_load %}
         {% endif %}
 
         {# Upload each data set in turn #}
