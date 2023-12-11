@@ -1,6 +1,6 @@
 {# dbt doesn't like us ref'ing in an operation so we fetch the info from the graph #}
 
-{% macro upload_results(results) -%}
+{% macro upload_results(results=none) -%}
 
     {% if execute %}
 
@@ -9,7 +9,7 @@
 
         {% if results == none %}
             {# When executing, and results are empty, then upload all metadate tables #}
-            {% set datasets_to_load =  ['exposures', 'invocations', 'sources', 'tests', 'models'] + datasets_to_load %}
+            {% set datasets_to_load =  ['exposures', 'invocations', 'sources', 'tests', 'models'] %}
         {% endif %}
 
         {# Upload each data set in turn #}
