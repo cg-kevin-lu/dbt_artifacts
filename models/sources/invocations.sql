@@ -6,6 +6,7 @@ with dummy_cte as (
 select
     cast(null as {{ type_string() }}) as command_invocation_id,
     cast(null as {{ type_string() }}) as dbt_version,
+    cast(null as {{ type_string() }}) as user,
     cast(null as {{ type_string() }}) as project_name,
     cast(null as {{ type_timestamp() }}) as run_started_at,
     cast(null as {{ type_string() }}) as dbt_command,

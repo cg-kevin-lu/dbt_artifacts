@@ -4,13 +4,12 @@
 
     {% if execute %}
 
-        {% set datasets_to_load = datasets_to_load or ['exposures', 'invocations', 'sources', 'tests', 'models'] %}
-        {% if results != [] %}
-            {# When executing, and results are available, then upload the execution results #}
-            {% set datasets_to_load = ['invocations', 'model_executions', 'test_executions'] %}
-        {% else %}
-            {# When executing, and results are empty, then upload all results #}
-            {% set datasets_to_load = ['invocations', 'model_executions', 'seed_executions', 'test_executions', 'snapshot_executions'] + datasets_to_load %}
+        {# When executing, and results are available, then upload the execution results #}
+        {% set datasets_to_load = datasets_to_load or ['invocations', 'model_executions', 'test_executions']%}
+
+        {% if results == none %}
+            {# When executing, and results are empty, then upload all metadate tables #}
+            {% set datasets_to_load =  ['exposures', 'invocations', 'sources', 'tests', 'models'] + datasets_to_load %}
         {% endif %}
 
         {# Upload each data set in turn #}

@@ -8,6 +8,8 @@ models:
     description: '{{ doc("command_invocation_id") }}'
   - name: dbt_version
     description: '{{ doc("dbt_version") }}'
+  - name: user
+    description: '{{ doc("user") }}'
   - name: project_name
     description: '{{ doc("project_name") }}'
   - name: run_started_at

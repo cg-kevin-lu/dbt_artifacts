@@ -30,6 +30,7 @@
         (
             command_invocation_id,
             dbt_version,
+            user,
             project_name,
             run_started_at,
             dbt_command,
@@ -70,6 +71,7 @@
             name,
             alias,
             message,
+            user,
             adapter_response
         )
 

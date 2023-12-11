@@ -412,3 +412,9 @@ Response provided by the adapter as JSON.
 All results as a JSON blob
 
 {% enddocs %}
+
+{% docs user %}
+
+Name of the executing user. Sourced from env var, DBT_DATASET_PREFIX.
+
+{% enddocs %}

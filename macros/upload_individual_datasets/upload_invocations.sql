@@ -102,6 +102,7 @@
         (
         '{{ invocation_id }}', {# command_invocation_id #}
         '{{ dbt_version }}', {# dbt_version #}
+        '{{ env_var('DBT_DATASET_PREFIX') }}', {# user #}
         '{{ project_name }}', {# project_name #}
         '{{ run_started_at }}', {# run_started_at #}
         '{{ flags.WHICH }}', {# dbt_command #}

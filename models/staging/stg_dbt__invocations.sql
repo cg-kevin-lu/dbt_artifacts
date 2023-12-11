@@ -10,6 +10,7 @@ enhanced as (
     select
         command_invocation_id,
         dbt_version,
+        user,
         project_name,
         run_started_at,
         dbt_command,
