@@ -27,6 +27,7 @@ enhanced as (
         name,
         alias,
         message,
+        user,
         adapter_response
     from base
 

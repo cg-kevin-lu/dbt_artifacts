@@ -26,7 +26,8 @@ model_executions as (
         schema, -- noqa
         name,
         alias,
-        message
+        message,
+        user
     from base
 
 )
